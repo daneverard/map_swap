@@ -56,6 +56,8 @@ class LocationCreateView(LoginRequiredMixin, HtmxMixin, CreateView):
             "type": "Point",
             "coordinates": [form.cleaned_data["long"], form.cleaned_data["lat"]],
         }
+        # Add request.FILES to handle the image
+        form.instance.building_image = self.request.FILES.get('building_image')
         return super().form_valid(form)
 
     def get_success_url(self):
@@ -103,6 +105,8 @@ class LocationUpdateView(LoginRequiredMixin, HtmxMixin, UpdateView):
             "type": "Point",
             "coordinates": [form.cleaned_data["long"], form.cleaned_data["lat"]],
         }
+        # Add request.FILES to handle the image
+        form.instance.building_image = self.request.FILES.get('building_image')
         return super().form_valid(form)
 
     def get_success_url(self):

@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 from environs import Env
 
 env = Env()
@@ -134,3 +134,6 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 DJANGO_SUPERUSER_PASSWORD = env.str("DJANGO_SUPERUSER_PASSWORD")
+
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media/')
+MEDIA_URL = '/media/'

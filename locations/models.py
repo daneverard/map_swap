@@ -6,6 +6,7 @@ from djgeojson.fields import PointField
 class Location(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField(max_length=500)
+    building_image = models.ImageField(upload_to='building_images/', null=True)
     geom = PointField(null=True)
 
     class Meta:

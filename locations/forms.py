@@ -13,7 +13,7 @@ class LocationCreateForm(ModelForm):
 
     class Meta:
         model = Location
-        fields = ("title", "description")
+        fields = ("title", "description", "building_image")
 
     def clean(self):
         cleaned_data = super().clean()
